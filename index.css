@@ -9,15 +9,16 @@
 :root {
   --SoftBlue: hsl(215, 51%, 70%);
   --Cyan: hsl(178, 100%, 50%);
-
-  /* border */
-  --border: hsl(217, 54%, 11%);
-  --border-fade: hsla(216, 54%, 11%, 0.568);
-
-  /*bg */
-  --background: hsl(216, 50%, 16%);
-
   --White: hsl(0, 0%, 100%);
+
+  /* main bg */
+  --mainBG: hsl(217, 54%, 11%);
+
+  /* card bg */
+  --cardBG: hsl(216, 50%, 16%);
+
+  /* line */
+  --line: hsl(215, 32%, 27%);
 }
 
 html {
@@ -29,13 +30,13 @@ html {
 }
 
 body {
-  background-color: var(--background);
+  background-color: var(--mainBG);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 4rem;
 }
 
 a {
@@ -47,28 +48,20 @@ p {
 }
 
 .container {
-  background-color: var(--border);
-  background: linear-gradient(
-    to bottom,
-    var(--border-fade) 0%,
-    var(--border) 100%
-  );
-
   max-width: 40rem;
   width: 100%;
   margin: auto;
-  padding: 2rem;
-  padding-bottom: 4.8rem;
-  border-radius: 1.6rem;
-  border-bottom-left-radius: 5rem;
-  border-bottom-right-radius: 5rem;
+  margin-bottom: 2rem;
 }
 
 .component {
-  background: var(--background);
+  /* offset-x | offset-y | blur-radius | spread-radius | color */
+  box-shadow: 0 2.8rem 0 1.6rem rgba(0, 0, 0, 0.1);
+  background: var(--cardBG);
   padding: 2.4rem;
+  padding-bottom: 3rem;
 
-  border-radius: 1.4rem;
+  border-radius: 2.8rem;
 }
 
 .nft-img {
@@ -108,7 +101,7 @@ p {
   justify-content: space-between;
   margin-bottom: 2rem;
   padding-bottom: 2rem;
-  border-bottom: 2px hsl(215, 32%, 27%) solid;
+  border-bottom: 2px var(--line) solid;
 }
 
 .countdown span {
@@ -143,4 +136,64 @@ p {
   color: var(--Cyan);
   font-weight: 600;
   letter-spacing: 0.1rem;
+}
+
+/* MEDIA QUERIES */
+/* Large phones */
+/* 430px / 16px = 26.875em */
+@media (max-width: 26.875em) {
+  .component {
+    /* offset-x | offset-y | blur-radius | spread-radius | color */
+    box-shadow: 0 2.8rem 0 1.4rem rgba(0, 0, 0, 0.06);
+
+    padding: 2.6rem;
+  }
+
+  .attribution {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Medium phones*/
+/* 375px / 16px = 23.4375em */
+@media (max-width: 23.4375em) {
+  .container {
+    width: 35rem;
+  }
+
+  .profile {
+    gap: 1.2rem;
+    font-size: 1.2rem;
+  }
+
+  .profile img {
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+}
+
+/* Small phones */
+/* 320px / 16px = 20em */
+@media (max-width: 20em) {
+  p {
+    font-size: 1.4rem;
+  }
+  .container {
+    width: 30rem;
+  }
+
+  .countdown span {
+    font-size: 1.4rem;
+  }
+
+  .profile img {
+    width: 3.4rem;
+    height: 3.4rem;
+  }
+
+  .attribution {
+    font-size: 1rem;
+  }
 }
