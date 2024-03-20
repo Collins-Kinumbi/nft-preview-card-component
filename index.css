@@ -165,6 +165,10 @@ p {
 /* Large phones */
 /* 430px / 16px = 26.875em */
 @media (max-width: 26.875em) {
+  .container {
+    width: 34rem;
+  }
+
   .component {
     /* offset-x | offset-y | blur-radius | spread-radius | color */
     box-shadow: 0 2.8rem 0 1.4rem rgba(0, 0, 0, 0.06);
@@ -181,10 +185,6 @@ p {
 /* Medium phones*/
 /* 375px / 16px = 23.4375em */
 @media (max-width: 23.4375em) {
-  .container {
-    width: 35rem;
-  }
-
   .profile {
     gap: 1.2rem;
     font-size: 1.2rem;
